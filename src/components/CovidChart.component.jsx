@@ -32,9 +32,9 @@ const CovidChart = () => {
             labels: covDate,
             datasets: [
               {
-                label: 'Covid Cases',
+                label: 'New Covid Cases by Date (UK)',
                 data: covCase,
-                backgroundColor: ['rgba(24, 12, 192, 0.6)'],
+                backgroundColor: ['rgba(81, 250, 157, 0.6)'],
                 borderWidth: 2,
               },
             ],
@@ -71,14 +71,13 @@ const CovidChart = () => {
             ],
             xAxes: [
               {
+               
                 // this section didn't make the difference expected of it. reversing the console.log() did, though!!
                 // ticks: {
-                //   reverse: true,
+                //   // reverse: true,
+                //   maxTicksLimit: 7,
+                //   display: false,
                 // },
-                labels: {
-
-                  display: false,
-                }
               },
             ],
           },
