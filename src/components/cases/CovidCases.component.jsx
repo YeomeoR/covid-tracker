@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 
-const CovidChart = () => {
+const CovidCases = () => {
   const [chartData, setChartData] = useState({});
 
   const chart = () => {
@@ -32,7 +32,7 @@ const CovidChart = () => {
             labels: covDate,
             datasets: [
               {
-                label: 'New Covid Cases by Date (UK)',
+                label: 'New Covid Cases by Date (England)',
                 data: covCase,
                 backgroundColor: ['rgba(81, 250, 157, 0.6)'],
                 borderWidth: 2,
@@ -43,7 +43,9 @@ const CovidChart = () => {
       })
       .catch((err) => {
         console.log(err);
-      });
+      }).catch((err) => {
+        console.log(err.message)
+      })
     // console.log(covCase, covDate);
   };
 
@@ -87,4 +89,4 @@ const CovidChart = () => {
   );
 };
 
-export default CovidChart;
+export default CovidCases;
