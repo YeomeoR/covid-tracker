@@ -23,7 +23,7 @@ const CumCases = () => {
                     datasets: [{
                         label: 'Cummulative Cases (England)',
                         data: cumCases,
-                        backgroundColor: ['rgba(255,124,107, 0.6)'],
+                        backgroundColor: ['#e4ff6bef'],
                         borderWidth: 1,
                     }]
                 })
@@ -39,7 +39,7 @@ const CumCases = () => {
     },[])
 
     return (
-        <div className='chart' style={{height: 400, width: 600}}>
+        <div className='charts' style={{height: 400, width: 600}}>
             <Line
                 data={chartData}
                 options={{

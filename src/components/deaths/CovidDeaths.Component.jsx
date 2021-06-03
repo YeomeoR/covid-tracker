@@ -29,7 +29,7 @@ const CovidDeaths = () => {
             {
               label: 'Daily Deaths with 28 days of a positive Covid Test (England)',
               data: covDeath,
-              backgroundColor: ['rgba(243, 109, 32, 0.6)'],
+              backgroundColor: ['rgba(48, 177, 252, 0.877)'],
               borderWidth: 2,
             },
           ],
@@ -46,7 +46,7 @@ const CovidDeaths = () => {
   }, []);
 
   return (
-    <div className="deaths" style={{ height: 400, width: 600 }}>
+    <div className="charts" style={{ height: 400, width: 600 }}>
       <Line
         //the data is the state
         data={chartData}

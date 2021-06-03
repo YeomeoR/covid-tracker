@@ -28,7 +28,7 @@ const CumDeathsRate = () => {
               {
                 label: 'Cummulative Death Rate / 100,000 (England)',
                 data: cumDeathsRate,
-                backgroundColor: ['rgba(243, 109, 32, 0.6)'],
+                backgroundColor: ['rgba(136, 255, 255, 0.986)'],
                 borderWidth: 2,
               },
             ],
@@ -45,7 +45,7 @@ const CumDeathsRate = () => {
   }, []);
 
   return (
-    <div className="chart" style={{ height: 400, width: 600 }}>
+    <div className="charts" style={{ height: 400, width: 600 }}>
       <Line
         data={chartData}
         options={{
@@ -58,10 +58,20 @@ const CumDeathsRate = () => {
             yAxes: [
               {
                 ticks: {
-                  beginAtZero: true,
+                      beginAtZero: true,
+                      crossAlign: 'near',
+                    
                 },
               },
-            ],
+              ],
+              xAxes: [
+                  {
+                      ticks: {
+                          crossAlign: 'near',
+                          display: false
+                      }
+                  }
+              ]
           },
         }}
       />
