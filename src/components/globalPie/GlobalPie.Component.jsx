@@ -5,13 +5,29 @@ import { Pie } from 'react-chartjs-2'
 const GlobalCases = () => {
     const [chartData, setChartData] = useState({})
 
-    const chart = () => {
+  const chart = () => {
+    let countryData = []
+    // let country = []
         axios
           .get(
-            'https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=overview&structure={"date":"date","name":"areaName","code":"areaCode","cumDeaths28DaysByPublishDateRate":"cumDeaths28DaysByPublishDateRate","cumCasesByPublishDate":"cumCasesByPublishDate","newDeaths28DaysByPublishDate":"newDeaths28DaysByPublishDate","cumDeaths28DaysByPublishDate":"cumDeaths28DaysByPublishDate"}',
+            'https://covidtrackerapi.bsg.ox.ac.uk/api/v2/stringency/date-range/2021-06-02/2021-06-03',
           )
           .then((res) => {
-            console.log(res.data);
+            console.log(res.data.data);
+            // for (const dataObj of res.data.data) {
+            //   //////////////////////////////////////////////////////////////
+            // }
+            setChartData({
+              labels: countryData,
+              datasets: [
+                {
+                  label: 'Cummulative Death Rate / 100,000 (England)',
+                  data: countryData,
+                  backgroundColor: ['rgba(136, 255, 255, 0.986)'],
+                  borderWidth: 2,
+                },
+              ],
+            });
           });
     }
     useEffect(() => {

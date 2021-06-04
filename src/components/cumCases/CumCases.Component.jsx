@@ -19,14 +19,31 @@ const CumCases = () => {
                     
                 }
                 setChartData({
-                    labels: cumDate,
-                    datasets: [{
-                        label: 'Cummulative Cases (England)',
-                        data: cumCases,
-                        backgroundColor: ['#e4ff6bef'],
-                        borderWidth: 1,
-                    }]
-                })
+                  labels: cumDate,
+                  datasets: [
+                    {
+                      label: 'Cummulative Cases (England)',
+                      data: cumCases,
+                      backgroundColor: ['#e4ff6b99'],
+                      borderWidth: 1,
+                    },
+                  ],
+                  options: {
+                    title: { text: 'Cum Cases', display: true },
+                    scales: {
+                      
+                          xAxes: [
+                              {
+                              display: false,
+                            autoSkip: true,
+                            padding: 10,
+                            
+                          },
+                        ],
+                      
+                    },
+                  },
+                });
             }
         ).catch(err => {
             console.log(err.message)
@@ -39,22 +56,13 @@ const CumCases = () => {
     },[])
 
     return (
-        <div className='charts' style={{height: 400, width: 600}}>
-            <Line
-                data={chartData}
-                options={{
-                    title: { text: 'Cum Cases', display: true },
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }}
-            />
-        </div>
-     );
+      <div className="charts" id='cumCases' style={{ height: 700, width: 900 }}>
+        <Line
+          data={chartData}
+          
+        />
+      </div>
+    );
 }
  
 export default CumCases;

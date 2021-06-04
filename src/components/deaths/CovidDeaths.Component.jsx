@@ -46,7 +46,7 @@ const CovidDeaths = () => {
   }, []);
 
   return (
-    <div className="charts" style={{ height: 400, width: 600 }}>
+    <div className="charts" id='deaths' style={{ height: 700, width: 900 }}>
       <Line
         //the data is the state
         data={chartData}
@@ -54,14 +54,26 @@ const CovidDeaths = () => {
           title: {
             text: 'Covid Deaths by Date',
             display: true,
-            },
-            
+          },
+
           scales: {
             yAxes: [
               {
                 ticks: {
                   beginAtZero: true,
                 },
+              },
+            ],
+            xAxes: [
+              {
+                autoSkip: true,
+                padding: 10,
+                // this section didn't make the difference expected of it. reversing the console.log() did, though!!
+                // ticks: {
+                //   // reverse: true,
+                //   maxTicksLimit: 7,
+                //   display: false,
+                // },
               },
             ],
           },

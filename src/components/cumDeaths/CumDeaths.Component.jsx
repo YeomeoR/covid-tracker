@@ -45,7 +45,7 @@ const CumDeathsRate = () => {
   }, []);
 
   return (
-    <div className="charts" style={{ height: 400, width: 600 }}>
+    <div className="charts" id='cumDeaths' style={{ height: 700, width: 900 }}>
       <Line
         data={chartData}
         options={{
@@ -58,20 +58,28 @@ const CumDeathsRate = () => {
             yAxes: [
               {
                 ticks: {
-                      beginAtZero: true,
-                      crossAlign: 'near',
-                    
+                  beginAtZero: true,
+                  crossAlign: 'near',
                 },
               },
-              ],
-              xAxes: [
-                  {
-                      ticks: {
-                          crossAlign: 'near',
-                          display: false
-                      }
-                  }
-              ]
+            ],
+            xAxes: [
+              {
+                ticks: {
+                  crossAlign: 'near',
+                  display: false,
+
+                  autoSkip: true,
+                  padding: 10,
+                  // this section didn't make the difference expected of it. reversing the console.log() did, though!!
+                  // ticks: {
+                  //   // reverse: true,
+                  //   maxTicksLimit: 7,
+                  //   display: false,
+                  // },
+                },
+              },
+            ],
           },
         }}
       />
