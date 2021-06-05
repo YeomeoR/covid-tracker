@@ -18,10 +18,11 @@ const CovidCases = () => {
       // then we take the response and iterate through the array of objects
       .then((res) => {
         // here we reverse the order that the data comes into the console
-        console.log(res.data.data.reverse());
+        // console.log(res.data.data.reverse());
+        let result = res.data.data.reverse();
 
         // looping through the data-response and creating a dataObj variable in the process
-        for (const dataObj of res.data.data) {
+        for (const dataObj of result) {
           // pushing the parsed dataObj and the field required to the empty array (covCase)
           covCase.push(parseInt(dataObj.newCasesByPublishDate));
           // pushing the parsed dataObj and the field required to the empty array (covDate)

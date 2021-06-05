@@ -12,15 +12,15 @@ const CumDeathsRate = () => {
       .get(
         'https://api.coronavirus.data.gov.uk/v1/data?filters=areaName=England;areaType=nation&structure={"date":"date","name":"areaName","code":"areaCode","cumDeaths28DaysByPublishDateRate":"cumDeaths28DaysByPublishDateRate","cumCasesByPublishDate":"cumCasesByPublishDate","newDeaths28DaysByPublishDate":"newDeaths28DaysByPublishDate","cumDeaths28DaysByPublishDate":"cumDeaths28DaysByPublishDate"}',
       )
-      .then((res) => {
-          console.log(res.data.data.reverse());
+      .then(
+            (res) => {
+                 let result = res.data.data.reverse();
 
-          for (const objData of res.data.data) {
-              cumDeathsRate.push(
-                parseInt(objData.cumDeaths28DaysByPublishDateRate),
-              );
-              cumDate.push(parseInt(objData.date))
-          }
+                 // looping through the data-response and creating a dataObj variable in the process
+                 for (const dataObj of result)  {
+    cumDeathsRate.push(parseInt(dataObj.cumDeaths28DaysByPublishDateRate));
+    cumDate.push(parseInt(dataObj.date));
+  }
           
           setChartData({
             labels: cumDate,

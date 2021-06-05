@@ -15,10 +15,10 @@ const CovidDeaths = () => {
         'https://api.coronavirus.data.gov.uk/v1/data?filters=areaName=England;areaType=nation&structure={"date":"date","name":"areaName","code":"areaCode","newCasesByPublishDate":"newCasesByPublishDate","cumCasesByPublishDate":"cumCasesByPublishDate","newDeaths28DaysByPublishDate":"newDeaths28DaysByPublishDate","cumDeaths28DaysByPublishDate":"cumDeaths28DaysByPublishDate"}',
       )
       .then((res) => {
-        console.log(res.data.data.reverse());
+        let result = res.data.data.reverse();
 
-        // need a for...in loop to push the data into vars that can be placed in table datasets.data
-        for (const dataObj of res.data.data) {
+        // looping through the data-response and creating a dataObj variable in the process
+        for (const dataObj of result) {
           covDeath.push(parseInt(dataObj.newDeaths28DaysByPublishDate));
           covDate.push(parseInt(dataObj.date));
         }
@@ -27,7 +27,8 @@ const CovidDeaths = () => {
           labels: covDate,
           datasets: [
             {
-              label: 'Daily Deaths with 28 days of a positive Covid Test (England)',
+              label:
+                'Daily Deaths with 28 days of a positive Covid Test (England)',
               data: covDeath,
               backgroundColor: ['rgba(48, 177, 252, 0.877)'],
               borderWidth: 2,
